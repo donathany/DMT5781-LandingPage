@@ -3,6 +3,7 @@ const header = document.querySelector("header");
 
 const faders = document.querySelectorAll(".fade-in");
 const sliders = document.querySelectorAll(".slide-in");
+const robot = document.querySelector("#robot");
 
 const sectionOneOptions = {
   rootMargin: "-200px 0px 0px 0px"
@@ -36,10 +37,12 @@ const appearOnScroll = new IntersectionObserver(function(
 ) {
   entries.forEach(entry => {
     if (!entry.isIntersecting) {
+      
+      entry.target.classList.remove("appear");
       return;
     } else {
       entry.target.classList.add("appear");
-      appearOnScroll.unobserve(entry.target);
+      // appearOnScroll.unobserve(entry.target);
     }
   });
 },
@@ -52,3 +55,5 @@ faders.forEach(fader => {
 sliders.forEach(slider => {
   appearOnScroll.observe(slider);
 });
+
+appearOnScroll.observe(robot);

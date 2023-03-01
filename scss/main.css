@@ -11738,7 +11738,8 @@ textarea.form-control-lg {
   overflow-x: hidden;
   perspective: 10px;
   background-color: black;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
+  align-content: center;
 }
 
 header {
@@ -11806,21 +11807,42 @@ header {
   transform: translateX(0);
 }
 
-.from-left #box {
+#box {
   width: 100px;
   height: 100px;
   border-radius: 10px;
   background-color: blue;
 }
 
+#robot {
+  width: auto;
+  height: auto;
+  max-height: 30vh;
+  max-width: 50%;
+  margin: 10px;
+  position: sticky;
+  top: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+  z-index: 99;
+}
+
+#robot.appear {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
 section {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "Cyberdyne";
   padding: 2rem;
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   height: 100%;
   scroll-snap-align: center;
 }
@@ -11843,6 +11865,11 @@ section.third {
   background: linear-gradient(-45deg, rgba(224, 2, 195, 0.8), rgba(36, 0, 238, 0.8), rgba(35, 166, 213, 0.8), rgba(39, 207, 95, 0.8));
   background-size: 150% 150%;
   animation: gradient 15s ease infinite;
+}
+
+li:nth-child(n) {
+  border: px solid orange;
+  margin-bottom: 1px;
 }
 
 body {
@@ -11876,9 +11903,18 @@ body {
     font-size: 5rem;
   }
 }
+@media (max-width: 767.98px) {
+  section {
+    font-size: 1.4rem;
+  }
+}
 @media (max-width: 575.98px) {
   .title {
     font-size: 4rem;
+  }
+  section {
+    font-size: 1.2rem;
+    text-align: center;
   }
   .background {
     transform: translateZ(-50px) scale(6.1) translateX(250px);
@@ -11886,4 +11922,8 @@ body {
     -o-object-fit: cover;
        object-fit: cover;
   }
+}
+section {
+  font-size: 1rem;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */
