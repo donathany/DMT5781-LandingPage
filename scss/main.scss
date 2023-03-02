@@ -11,7 +11,7 @@
 }
 
 .wrapper {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
@@ -54,7 +54,6 @@ header {
     
 	background-size: 200% 200%;
 	animation: gradient 15s ease infinite;
-    // font-size: calc(1.525rem + 3.3vw);
 }
   
 .fade-in {
@@ -88,11 +87,6 @@ header {
     opacity: 1;
     transform: translateX(0);
 }
-// @media (min-width: 1200px) {
-//   .title {
-//     font-size: 7rem;
-//   }
-// 
 
 #box {
     width: 100px;
@@ -217,14 +211,17 @@ body {
   
 @include media-breakpoint-down(sm) {
     .title {
-        font-size: 4rem;
+        font-size: 5rem;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
     }
     section {
         font-size: 1.2rem;
         text-align: center;
     }
     .background {
-        transform: translateZ(-50px) scale(6.1) translateX(250px); 
+        transform: translateZ(-50px) scale(6.1); 
+        left: 0;
         width: 200%;
         object-fit: cover;
     }
