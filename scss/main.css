@@ -9803,7 +9803,7 @@ textarea.form-control-lg {
   perspective: 10px;
   background-color: black;
   scroll-snap-type: y mandatory;
-  align-content: center;
+  align-content: end;
 }
 
 header {
@@ -9816,6 +9816,10 @@ header {
   transform-style: preserve-3d;
   z-index: -1;
   scroll-snap-align: center;
+}
+
+footer {
+  scroll-snap-align: end;
 }
 
 .background {
@@ -9838,6 +9842,15 @@ header {
   -webkit-background-clip: text;
   background-size: 200% 200%;
   animation: gradient 15s ease infinite;
+  font-family: "Cyberdyne";
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+  scroll-snap-align: center;
 }
 
 .fade-in {
@@ -9900,35 +9913,19 @@ header {
 }
 
 section {
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   font-family: "Cyberdyne";
-  padding: 2rem;
   color: white;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: end;
   height: 100%;
   scroll-snap-align: center;
 }
 
-section.first {
-  background-color: rgba(0, 255, 255, 0.3);
-  background: linear-gradient(-45deg, rgba(224, 2, 195, 0.8), rgba(36, 0, 238, 0.8), rgba(35, 166, 213, 0.8), rgba(39, 207, 95, 0.8));
-  background-size: 150% 150%;
-  animation: gradient 15s ease infinite;
-}
-
-section.second {
-  background-color: rgba(228, 0, 0, 0.3);
-  background: linear-gradient(225deg, rgba(224, 2, 195, 0.8), rgba(36, 0, 238, 0.8), rgba(35, 166, 213, 0.8), rgba(39, 207, 95, 0.8));
-  background-size: 150% 150%;
-  animation: gradient 15s ease infinite;
-}
-
-section.third {
-  background: linear-gradient(-45deg, rgba(224, 2, 195, 0.8), rgba(36, 0, 238, 0.8), rgba(35, 166, 213, 0.8), rgba(39, 207, 95, 0.8));
-  background-size: 150% 150%;
-  animation: gradient 15s ease infinite;
+.card {
+  width: 75%;
+  background: linear-gradient(-45deg, rgba(224, 2, 195, 0.5), rgba(36, 0, 238, 0.5), rgba(35, 166, 213, 0.5), rgba(39, 207, 95, 0.5));
 }
 
 li:nth-child(n) {
@@ -9951,6 +9948,18 @@ body {
   z-index: 2;
 }
 
+.container.top {
+  width: 50%;
+}
+
+.container.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  border: red 1px solid;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -9969,17 +9978,24 @@ body {
 }
 @media (max-width: 767.98px) {
   section {
-    font-size: 1.4rem;
+    font-size: 1.58265vw;
+    flex-direction: column;
+    width: auto;
+  }
+  .container.bottom,
+  .container.top {
+    height: 100%;
+    width: 80%;
   }
 }
 @media (max-width: 575.98px) {
   .title {
     font-size: 5rem;
+    height: 75%;
     writing-mode: vertical-lr;
     text-orientation: upright;
   }
   section {
-    font-size: 1.2rem;
     text-align: center;
   }
   .background {
@@ -9988,10 +10004,5 @@ body {
     width: 200%;
     -o-object-fit: cover;
        object-fit: cover;
-  }
-}
-@media (max-width: 330px) {
-  .section {
-    font-size: 1rem;
   }
 }/*# sourceMappingURL=main.css.map */
